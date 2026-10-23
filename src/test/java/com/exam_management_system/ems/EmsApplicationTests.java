@@ -1,0 +1,13 @@
+package com.exam_management_system.ems;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class EmsApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
