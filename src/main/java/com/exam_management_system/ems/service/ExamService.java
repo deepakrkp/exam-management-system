@@ -27,7 +27,7 @@ public class ExamService {
 	            exam.getDescription(),
 	            exam.getDurationMinutes(),
 	            exam.getTotalMarks(),
-	            exam.getActive()
+	           exam.isActive()
 	    );
 	}
 	public ExamResponse createExamDetails(ExamRequest request) {
