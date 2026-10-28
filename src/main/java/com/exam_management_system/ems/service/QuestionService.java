@@ -1,5 +1,7 @@
 package com.exam_management_system.ems.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.exam_management_system.ems.dto.QuestionRequest;
@@ -47,6 +49,16 @@ public class QuestionService {
 		questionRepo.save(question);
 
 		QuestionResponse response = mapToResponse(question);
+		return response;
+	}
+	public List<QuestionResponse> getQuestionsByExamId(Long examId) {
+		Exam exam = examRepo.findById(examId)
+				 .orElseThrow(() -> new ResourceNotFoundException("Exam not found with id " + examId)); 
+		
+		List<Question> questions = questionRepo.findByExamId(examId);
+		
+		List<QuestionResponse> response =questions.stream().map((question)->mapToResponse(question)).toList();
+		
 		return response;
 	}
 
